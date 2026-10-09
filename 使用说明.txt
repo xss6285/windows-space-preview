@@ -1,0 +1,47 @@
+Windows 空格预览分享包
+
+安装方法
+1. 把整个 ZIP 解压到一个文件夹，不要直接在压缩包内运行。
+2. 双击 Install.cmd。请用普通用户运行，不要选择“以管理员身份运行”。
+3. 等待窗口显示 Setup completed。若提示失败，请保留错误信息。
+4. 在资源管理器中单击选中文件，按空格预览，按 Esc 关闭。
+
+安装脚本会从官方渠道安装 QuickLook、配置当前用户开机启动、安装独立 OfficeViewer，并把 skill 复制到个人 Codex 技能目录。已安装的组件会复用。不会自动卸载 PowerToys 或其他软件；若空格冲突，请关闭其他软件的空格预览快捷键。
+
+需要 Windows 10/11、联网，以及微软 App Installer 提供的 winget。如果提示找不到 winget，请从 Microsoft Store 安装“应用安装程序”后重试：
+https://apps.microsoft.com/detail/9nblggh4nns1
+首次下载需要访问 GitHub 和 winget。安装可能依系统设置要求许可提示；安装失败不会被当作成功。
+
+支持范围
+图片：常见 PNG、JPEG 等。
+TXT：内置文本预览器，选中文本文件按空格；乱码时选择适合的文本编码，不需要改动原文档。
+PDF：内置 PDF 预览器。
+PSD/PSB：预览合成画面，不编辑图层；特殊模式或无兼容合成图像可能失败。
+Adobe Illustrator AI：保存时需要勾选“创建 PDF 兼容文件”。非兼容 AI 不保证预览。
+WPS 常用办公文件：Word .doc/.docx，Excel .xls/.xlsx，PowerPoint .pptx；无需打开 WPS。
+旧 .ppt 和 WPS 专有 .wps/.et/.dps 未包含，可在 WPS 中另存标准格式副本。
+复杂排版、加密或只读属性的办公文件可能存在限制。
+
+预览后打开原文件
+窗口右上角已有“用默认应用打开”的图标按钮。鼠标停留会显示应用名称，点击后用原文件双击时对应的软件打开，并关闭预览窗口。
+PSD 默认关联 Photoshop 时用 PS 打开，AI 默认关联 Illustrator 时用 Illustrator 打开，Word/Excel/PPT/PDF 默认关联 WPS 时用 WPS 打开。
+按钮遵从接收者电脑的 Windows 默认应用；分享包不安装 Adobe/WPS，也不自动修改文件关联。要指定软件，请在 Windows 设置→应用→默认应用中设置；旁边的“打开方式”按钮可临时选其他程序。
+按钮是 QuickLook 自带的图标，应用名称显示在悬停提示中，不是新增的常驻文字按钮。
+
+Codex 用户
+安装完成后开启新聊天，可输入：
+使用 $windows-space-preview 检查并修复空格预览。
+本包根目录包含 SKILL.md、agents 和 scripts，可直接上传到支持此结构的平台。在本机手动安装时，把这三项放到个人 .codex/skills/windows-space-preview 目录，再让 Codex 完成完整部署。
+仅复制 skill 不会自动安装软件；必须执行上述安装或让 Codex 运行 scripts/setup-preview.ps1。
+不使用 Codex 的人也可以运行 Install.cmd，日常预览不依赖 Codex。
+
+测试范围
+分享者电脑已验证图片、真实 PSD/PDF兼容AI、DOCX/XLSX/PPTX 样例渲染。未在另一台干净的 Windows 10/11 机器上测试，其他电脑应在安装后分别检查真实文件。
+
+卸载与撤销
+不再需要预览时，可在 Windows 设置的“应用”中卸载 QuickLook。启动文件夹中的 QuickLook.lnk 如仍存在可删除。若要删除技能，仅删除个人 .codex/skills/windows-space-preview 文件夹。
+
+本包只含 skill、脚本和说明；预览软件及插件在线从官方渠道获取，不捆绑第三方二进制或分享者的设计文件。
+QuickLook：https://github.com/QL-Win/QuickLook
+OfficeViewer：https://github.com/QL-Win/QuickLook.Plugin.OfficeViewer
+

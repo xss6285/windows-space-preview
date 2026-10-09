@@ -1,0 +1,4 @@
+interface:
+  display_name: "Windows 空格预览"
+  short_description: "图片、设计文件、TXT及办公文档空格预览，并用默认软件打开原文件"
+  default_prompt: "使用 $windows-space-preview 配置图片、PSD、AI、TXT和办公文档预览，检查右上角按钮能否用默认软件打开原文件。"
